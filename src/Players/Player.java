@@ -5,10 +5,10 @@ public class Player {
     private String name;
     private int points;
 
-    public Player(int id, String name, int points) {
+    public Player(int id, String name) {
         this.id = id;
         this.name = name;
-        this.points = points;
+        this.points = 0;
     }
 
     public int getId() {
