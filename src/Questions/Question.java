@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class Question {
     int id;
     String question;
-    String[] answers;
-    int correctOption;
-    int points;
+    public String[] answers;
+    public int correctOption;
+    public int points;
 //    public Question(int id, String question, String[] answers, int correctOption, int points) {
 //    }
 

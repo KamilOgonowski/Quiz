@@ -6,6 +6,7 @@ public class Main {
         LaunchGame startGame = new LaunchGame(new PoolOfQuestions());
         startGame.addPlayerToList();
         startGame.test();
+        startGame.startGame();
 
     }
 }
