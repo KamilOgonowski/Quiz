@@ -17,11 +17,11 @@ public class LaunchGame {
         System.out.println("Welcome in quiz game!");
         numberOfPlayers = Console.getIntInput("Please set number of players: ");
         player = new Player[numberOfPlayers];
-        questions = new PoolOfQuestions();
+//        questions = new PoolOfQuestions();
     }
 
     public LaunchGame(GeneratePoolOfQuestion questions){
-        this.questions = questions;
+        this.questions = new PoolOfQuestions();
     }
 
 
