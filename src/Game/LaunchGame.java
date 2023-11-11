@@ -47,7 +47,7 @@ public class LaunchGame {
         for(int i = 0; i < currentPoolForTheGame.length; i++){
             if (quitGame) {
                 System.out.println("The current result is: ");
-                showPoints();
+//                showPoints();
                 break;
             }
             Question currentQuestion = currentPoolForTheGame[i];
@@ -65,8 +65,10 @@ public class LaunchGame {
                 }
             }
         }
+
         showPoints();
-        whoWonTheGame();
+        if (!quitGame)
+            whoWonTheGame();
 
     }
 
