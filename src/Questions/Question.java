@@ -1,5 +1,7 @@
 package Questions;
 
+import java.util.Arrays;
+
 public class Question {
     int id;
     String question;
@@ -15,5 +17,20 @@ public class Question {
         this.answers = answers;
         this.correctOption = correctOption;
         this.points = points;
+    }
+
+    public Question(){
+        this.id = 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", question='" + question + '\'' +
+                ", answers=" + Arrays.toString(answers) +
+                ", correctOption=" + correctOption +
+                ", points=" + points +
+                '}';
     }
 }

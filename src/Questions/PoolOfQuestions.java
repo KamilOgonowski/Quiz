@@ -1,6 +1,15 @@
 package Questions;
 
-public class PoolOfQuestions {
+import ConsoleInput.Console;
+
+import java.util.Random;
+
+public class PoolOfQuestions implements GeneratePoolOfQuestion{
+    int lengthOfList;
+    public static Random generateRadnom = new Random();
+    Question [] poolOfQuestionForTheGame;
+
+
 
     Question [] listOfQuestions = {new Question(1,"Which class you can use to create mutable String objects?: ",
             new String[]{"Mutable class","String class", "String class", "StringBuilder class"},
@@ -49,4 +58,37 @@ public class PoolOfQuestions {
 
     };
 
+    public Question [] generateUniqePool(){
+        lengthOfList = listOfQuestions.length;
+        int numberOfQuestionsToBeGenerated = Console.getIntInput("How many questions would you like to generate?\n Maximum amount is " + lengthOfList);
+        poolOfQuestionForTheGame = generateListWithDefaultValues(numberOfQuestionsToBeGenerated);
+        for(int i = 0; i<numberOfQuestionsToBeGenerated; i++){
+            while(true){
+                int indexOfGeneratedQuestion = generateRadnom.nextInt(1, lengthOfList+1);
+                if(checkIfUnique(indexOfGeneratedQuestion)){
+                    poolOfQuestionForTheGame[i] = listOfQuestions[indexOfGeneratedQuestion-1];
+                    break;
+
+                } else continue;
+            }
+        }
+        return poolOfQuestionForTheGame;
+    }
+
+    public boolean checkIfUnique(int indexOfGeneratedQuestion){
+        for (Question question: poolOfQuestionForTheGame){
+            if (question.id == indexOfGeneratedQuestion){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public Question [] generateListWithDefaultValues(int numberOfQuestionsToBeGenerated){
+        poolOfQuestionForTheGame = new Question[numberOfQuestionsToBeGenerated];
+        for(int i = 0; i<numberOfQuestionsToBeGenerated; i++){
+            poolOfQuestionForTheGame[i] = new Question();
+        }
+        return poolOfQuestionForTheGame;
+    }
 }
